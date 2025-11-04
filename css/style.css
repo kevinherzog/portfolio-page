@@ -63,6 +63,14 @@ body.light {
   --info: oklch(0.5 0.09 260);
 }
 
+@font-face {
+  font-family: "JetBrainsMono";
+  src: url("fonts/JetBrainsMono-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 /*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
 
 /* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
@@ -77,6 +85,7 @@ body.light {
    ========================================================================== */
 
 html {
+  font-family: "JetBrainsMono", sans-serif;
   color: var(--bg-dark);
   font-size: 1em;
   line-height: 1.4;
@@ -249,38 +258,70 @@ textarea {
 }
 
 body{
-  background-color: grey;
+  background-color: var(--bg-dark);
   color: var(--text);
 }
 
 .wrapper{
   inline-size: 100%;
-  max-inline-size: min(100% - 4rem, 80rem); /* fluid gutter + cap */
+  max-inline-size: min(100% - 4rem, 70rem); /* fluid gutter + cap */
   margin-inline: auto;
   padding: clamp(1rem, 2vw, 2.5rem);
 }
 
 .hero{
   margin: auto;
-  width: 100% - 4rem;
   height: fit-content;
   background-color: var(--bg);
   display: flex;
+  border: solid var(--border);
+  border-radius: 20px;
 }
-
 .hero-txt{
-  align-self: flex-start;
-  padding: 4rem;
+  flex: 1 1 0;
+  padding: 2rem;
+  min-width: 0;
 }
-
-.icon-bar {
-
+.hero-img{
+  flex: 1 1 0;
+  min-width: 0;
+  position: relative;
+}
+.hero-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* fills the box, crops overflow */
+  object-position: center;
+  display: block;
+  border-radius: 0 20px 20px 0;
+}
+h1{
+  padding: 2rem;
+}
+.hero-degree{
+  padding: 2rem;
+}
+.hero-locationtext{
+  padding: 2rem;
+}
+.icon-bar > svg {
+  padding: 1rem;
+  scale: 1.5;
+}
+.icon-bar > svg:hover{
+  color: var(--secondary);
+  scale: 2;
+  transition: all 0.5s;
 }
 
 
 
 .navbar{
+  background-color: var(--bg-light);
   display: flex;
+}
+.navbar > *{
+  padding: 1rem;
 }
 
 .experience-headers{
@@ -296,11 +337,17 @@ body{
 }
 
 button{
+  background: var(--primary);
   padding: 1rem;
   border-radius: 10px;
 }
-.hero-img{
-  align-self: flex-end;
-  border-radius: 10px;
-  height: 100%;
+button:hover{
+  background: var(--secondary);
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+/* Stack on small screens */
+@media (max-width: 768px) {
+  .hero { flex-direction: column; }
+  .hero-img img { border-radius: 0 0 20px 20px; } /* optional: put image first on mobile */
 }
