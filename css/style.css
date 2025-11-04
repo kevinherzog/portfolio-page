@@ -279,7 +279,7 @@ body{
 }
 .hero-txt{
   flex: 1 1 0;
-  padding: 2rem;
+  padding: 2rem; /* add clamp or unique width for mobile */
   min-width: 0;
 }
 .hero-img{
@@ -349,5 +349,5 @@ button:hover{
 /* Stack on small screens */
 @media (max-width: 768px) {
   .hero { flex-direction: column; }
-  .hero-img img { border-radius: 0 0 20px 20px; } /* optional: put image first on mobile */
+  .hero-img img { border-radius: 0 0 19px 19px; } /* optional: put image first on mobile */
 }
